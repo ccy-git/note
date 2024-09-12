@@ -27,15 +27,18 @@ CONFIG += c++11
 SOURCES += \
         listwindow.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        mynote.cpp
 
 HEADERS += \
         listwindow.h \
-        mainwindow.h
+        mainwindow.h \
+        mynote.h
 
 FORMS += \
         listwindow.ui \
-        mainwindow.ui
+        mainwindow.ui \
+        mynote.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

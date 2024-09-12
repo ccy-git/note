@@ -12,6 +12,7 @@ ListWindow::ListWindow(QWidget *parent) :
     QString currentDateTime = dateTime.toString("yyyy-MM-dd hh:mm:ss");
     ui->label->setText(currentDateTime);
 
+
 }
 
 ListWindow::~ListWindow()

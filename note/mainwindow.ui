@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>437</width>
-    <height>420</height>
+    <width>438</width>
+    <height>428</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,7 +26,7 @@
       <x>0</x>
       <y>0</y>
       <width>431</width>
-      <height>391</height>
+      <height>401</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -35,17 +35,13 @@
        <property name="styleSheet">
         <string notr="true">font: 16pt &quot;黑体&quot;;
 color:rgb(255, 170, 0);
+text-alion:center;
+margin-left:20%;
+margin-right:20%;
 </string>
        </property>
        <property name="text">
         <string>名称</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -66,6 +62,8 @@ color:rgb(255, 170, 0);
        <property name="styleSheet">
         <string notr="true">QTextEdit{
 	font: 12pt &quot;楷体&quot;;
+	margin-left:10%;
+	margin-right:10%;
 }</string>
        </property>
        <property name="html">
@@ -78,18 +76,15 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item>
-      <widget class="Line" name="line_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QPushButton" name="deleteText">
          <property name="styleSheet">
-          <string notr="true">font: 12pt &quot;楷体&quot;;
+          <string notr="true">font: 12pt &quot;宋体&quot;;
+margin-left:10px;
+height:25px;
+color:blue;
+
 
 </string>
          </property>
@@ -101,7 +96,11 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QPushButton" name="save">
          <property name="styleSheet">
-          <string notr="true">font: 12pt &quot;楷体&quot;;
+          <string notr="true">font: 12pt &quot;宋体&quot;;
+margin-left:10px;
+height:25px;
+color:blue;
+
 
 </string>
          </property>
@@ -112,6 +111,25 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </item>
+     <item>
+      <widget class="QPushButton" name="showWindows">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>10</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -120,7 +138,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>437</width>
+     <width>438</width>
      <height>23</height>
     </rect>
    </property>
@@ -135,6 +153,7 @@ p, li { white-space: pre-wrap; }
     <property name="title">
      <string>查看</string>
     </property>
+    <addaction name="myNote"/>
    </widget>
    <addaction name="menuNote"/>
    <addaction name="menu"/>
@@ -153,6 +172,14 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="toolTip">
     <string>addText</string>
+   </property>
+  </action>
+  <action name="myNote">
+   <property name="text">
+    <string>我的笔记</string>
+   </property>
+   <property name="toolTip">
+    <string>我的笔记</string>
    </property>
   </action>
  </widget>
