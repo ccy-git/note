@@ -116,7 +116,7 @@ void MainWindow::on_save_clicked()
         return;
     }
 
-    file.write(textName.toUtf8());
+    file.write(text.toUtf8());
      QMessageBox::warning(this,tr("警告信息"),tr("保存成功"));
     file.close();
 
