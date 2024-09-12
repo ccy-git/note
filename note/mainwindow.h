@@ -30,6 +30,8 @@ private slots:
 
     void on_deleteText_clicked();
 
+    void on_addText_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

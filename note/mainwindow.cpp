@@ -108,3 +108,9 @@ void MainWindow::on_deleteText_clicked()
 {
     ui->textEdit->clear();
 }
+
+void MainWindow::on_addText_triggered()
+{
+    MainWindow *w = new MainWindow;
+    w->show();
+}
