@@ -12,6 +12,8 @@
 //剪切板相关
 #include <QClipboard>
 
+#include <QIcon>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -25,8 +27,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label->setText(fileName);
     ui->label->setAlignment(Qt::AlignHCenter);
     ui->showWindows->setVisible(false);
+    setWindowTitle("Note");
+    setWindowIcon(QIcon("C:\\Users\\ccy\\Pictures\\Note.ico"));
+
     this->setMaximumSize(437,430);
     this->setMinimumSize(437,430);
+
 //    窗口置顶
     setWindowFlags(Qt::WindowStaysOnTopHint);
     // 设置鼠标追踪，即使鼠标没有点击也会触发 mouseMoveEvent
@@ -58,7 +64,7 @@ void MainWindow::hideWindow()
 //     如果鼠标不在窗口内，隐藏窗口并将其移出屏幕
     QRect screenGeometry = QGuiApplication::primaryScreen()->geometry();
     if (!frameGeometry().contains(QCursor::pos())) {
-        move(x(), screenGeometry.top() - height()-distance);
+        move(x(), screenGeometry.top() - height()-distance-10);
         ui->showWindows->setVisible(true);
     }
 }
@@ -170,7 +176,7 @@ void MainWindow::on_showWindows()
 {
     QSize windowSize = this->size();  // 获取窗口的宽高
     int windowHeight = windowSize.height();  // 获取窗口高度
-    move(x(),y()+windowHeight+distance);
+    move(x(),y()+windowHeight+distance+10);
     ui->showWindows->setVisible(false);
 }
 
@@ -203,3 +209,5 @@ void MainWindow::on_clipBoard_clicked()
       ui->clipBoard->setText("开启剪切板");
     }
 }
+
+
