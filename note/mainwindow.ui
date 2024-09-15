@@ -78,6 +78,22 @@ p, li { white-space: pre-wrap; }
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
+        <widget class="QPushButton" name="clipBoard">
+         <property name="styleSheet">
+          <string notr="true">font: 12pt &quot;宋体&quot;;
+margin-left:10px;
+height:25px;
+color:blue;
+
+
+</string>
+         </property>
+         <property name="text">
+          <string>开启剪切板</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="deleteText">
          <property name="styleSheet">
           <string notr="true">font: 12pt &quot;宋体&quot;;

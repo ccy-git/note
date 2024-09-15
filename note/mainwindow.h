@@ -8,6 +8,7 @@
 #include <QScreen>
 #include <QTimer>
 #include <QDebug>
+#include <QClipboard>
 
 namespace Ui {
 class MainWindow;
@@ -46,10 +47,17 @@ private slots:
 
     void on_showWindows();
 
+    void getClipboardInfo(QClipboard::Mode mode); //获取剪切板的内容
+
+    void on_clipBoard_clicked();
+
+
+
 private:
     Ui::MainWindow *ui;
     QTimer *timer;
     int distance = 10; //贴边距离
+    bool isStartClipBoard = false;
 };
 
 #endif // MAINWINDOW_H

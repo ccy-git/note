@@ -9,7 +9,8 @@
 #include <QInputDialog>
 #include <mynote.h>
 #include <QAction>
-
+//剪切板相关
+#include <QClipboard>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,7 +30,9 @@ MainWindow::MainWindow(QWidget *parent) :
 //    窗口置顶
     setWindowFlags(Qt::WindowStaysOnTopHint);
     // 设置鼠标追踪，即使鼠标没有点击也会触发 mouseMoveEvent
-      setMouseTracking(true);
+    setMouseTracking(true);
+
+    connect(QApplication::clipboard(), &QClipboard::changed, this, &MainWindow::getClipboardInfo);
 
 }
 
@@ -56,8 +59,6 @@ void MainWindow::hideWindow()
     QRect screenGeometry = QGuiApplication::primaryScreen()->geometry();
     if (!frameGeometry().contains(QCursor::pos())) {
         move(x(), screenGeometry.top() - height()-distance);
-//        qDebug() << screenGeometry.top() - height() << endl;
-//        qDebug() << "screenGeometry.top()" <<screenGeometry.top() << endl;
         ui->showWindows->setVisible(true);
     }
 }
@@ -171,4 +172,34 @@ void MainWindow::on_showWindows()
     int windowHeight = windowSize.height();  // 获取窗口高度
     move(x(),y()+windowHeight+distance);
     ui->showWindows->setVisible(false);
+}
+
+void MainWindow::getClipboardInfo(QClipboard::Mode mode)
+{
+  if(isStartClipBoard){
+      // 延迟100毫秒读取剪贴板内容
+          QTimer::singleShot(100, this, [this,mode]() {
+              // 这里可以根据剪贴板模式处理不同的剪贴板类型，例如：
+              if (mode == QClipboard::Clipboard) {
+                  // 获取文本信息并进行处理
+                  QString copiedText = QApplication::clipboard()->text() + "\n";
+                  ui->textEdit->insertPlainText(copiedText);
+    //              qDebug() << "Clipboard changed, new text: " << copiedText;
+              }
+          });
+    }
+
+}
+
+
+
+void MainWindow::on_clipBoard_clicked()
+{
+  isStartClipBoard = !isStartClipBoard;
+  if(isStartClipBoard){
+      ui->clipBoard->setText("关闭剪切板");
+    }
+  else{
+      ui->clipBoard->setText("开启剪切板");
+    }
 }
