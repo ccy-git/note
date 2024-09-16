@@ -21,6 +21,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+  QString getFileName(QString fileName);
 //    当前日期
     QString currentDate;
 //    存储文件名称
@@ -29,7 +31,6 @@ protected:
      void leaveEvent(QEvent *event) override;  // 鼠标离开事件
      void enterEvent(QEvent *event) override;
 private slots:
-    void on_textEdit_textChanged();
 
     void on_save_clicked();
 
@@ -41,8 +42,6 @@ private slots:
 
     void on_addText_triggered();
 
-    void on_myNote_triggered();
-
     void hideWindow();          // 隐藏窗口
 
     void on_showWindows();
@@ -50,8 +49,7 @@ private slots:
     void getClipboardInfo(QClipboard::Mode mode); //获取剪切板的内容
 
     void on_clipBoard_clicked();
-
-
+    void on_open_triggered();
 
 private:
     Ui::MainWindow *ui;

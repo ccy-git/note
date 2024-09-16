@@ -229,19 +229,13 @@ background-color:  rgb(251, 199, 255);
    </property>
    <widget class="QMenu" name="menuNote">
     <property name="title">
-     <string>新建</string>
+     <string>菜单</string>
     </property>
     <addaction name="addList"/>
     <addaction name="addText"/>
-   </widget>
-   <widget class="QMenu" name="menu">
-    <property name="title">
-     <string>查看</string>
-    </property>
-    <addaction name="myNote"/>
+    <addaction name="open"/>
    </widget>
    <addaction name="menuNote"/>
-   <addaction name="menu"/>
   </widget>
   <action name="addList">
    <property name="text">
@@ -265,6 +259,14 @@ background-color:  rgb(251, 199, 255);
    </property>
    <property name="toolTip">
     <string>我的笔记</string>
+   </property>
+  </action>
+  <action name="open">
+   <property name="text">
+    <string>打开</string>
+   </property>
+   <property name="toolTip">
+    <string>打开</string>
    </property>
   </action>
  </widget>
