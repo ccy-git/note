@@ -98,11 +98,17 @@ void MainWindow::on_save_clicked()
                                            "请输入",
                                            "请输入文件名称",
                                            QLineEdit::Normal,
-                                           "",
+                                           fileName,
                                            &bOk);
-  //    获取当前文本名称
-  ui->label->setText(noteName);
-  fileName = ui->label->text();
+  if(bOk&&!noteName.isEmpty()){
+      //    获取当前文本名称
+      ui->label->setText(noteName);
+      fileName = ui->label->text();
+    }else if(bOk==false){
+      return;
+    }
+
+
   //    获取当前时间戳
   QString timestamp = QString::number(QDateTime::currentMSecsSinceEpoch());
   QString path = "./"+currentDate+"/"+fileName+"-"+timestamp +".txt";
