@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
   ui->label->setAlignment(Qt::AlignHCenter);
   ui->showWindows->setVisible(false);
   setWindowTitle("Note");
-  setWindowIcon(QIcon("C:\\Users\\ccy\\Pictures\\Note.ico"));
+  setWindowIcon(QIcon(":/Note.ico"));
 
   this->setMaximumSize(437,430);
   this->setMinimumSize(437,430);

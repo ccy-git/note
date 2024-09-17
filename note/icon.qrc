@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Note.png</file>
+        <file>Note.ico</file>
+    </qresource>
+</RCC>
