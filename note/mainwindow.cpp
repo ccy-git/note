@@ -15,6 +15,7 @@
 #include <QClipboard>
 
 #include <QIcon>
+#include <QSettings>
 
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
@@ -39,6 +40,16 @@ MainWindow::MainWindow(QWidget *parent) :
   setWindowFlags(Qt::WindowStaysOnTopHint);
   // 设置鼠标追踪，即使鼠标没有点击也会触发 mouseMoveEvent
   setMouseTracking(true);
+//  读取窗口位置
+  QSettings *settings;//申明一个QSetting类函数
+  settings = new QSettings ("config.ini", QSettings::IniFormat);//构建函数
+  int pos_x = settings->value("/pos/pos_X").toInt();
+  int pos_y = settings->value("/pos/pos_Y").toInt();
+  move(pos_x,pos_y);
+  delete settings ;
+//  qDebug() << pos_x << pos_y ;
+
+
   connect(QApplication::clipboard(), &QClipboard::changed, this, &MainWindow::getClipboardInfo);
 }
 
@@ -46,7 +57,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-  delete ui;
+   QPoint windowPos = this->pos();
+//   qDebug() << windowPos.x() << windowPos.y();
+//   存储窗口位置
+     QSettings *settings;//申明一个QSetting类函数
+     settings = new QSettings ("config.ini", QSettings::IniFormat);//构建函数
+     settings->setValue("/pos/pos_X",windowPos.x());
+     settings->setValue("/pos/pos_Y",windowPos.y());
+     delete settings;
+    delete ui;
 }
 
 void MainWindow::enterEvent(QEvent *event){
