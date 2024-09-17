@@ -18,7 +18,7 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
-    <string notr="true">background:rgb(255, 255, 251)</string>
+    <string notr="true"/>
    </property>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
@@ -57,13 +57,30 @@
         </font>
        </property>
        <property name="layoutDirection">
-        <enum>Qt::RightToLeft</enum>
+        <enum>Qt::LeftToRight</enum>
        </property>
        <property name="styleSheet">
         <string notr="true">QTextEdit{
 	font: 12pt &quot;楷体&quot;;
+	width:80%;
 	margin-left:10%;
+ 	border: 1px solid;
+	border-radius:5px;
 	margin-right:10%;
+ 	padding: 5px
+}
+
+QScrollBar:vertical {
+	width: 8px;         
+	background: #f0f0f0;
+	border:none;
+}
+QScrollBar::handle:vertical {
+	min-height: 20px;
+ 	background: #808080;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;               // 隐藏上下控制按钮
 }</string>
        </property>
        <property name="html">
