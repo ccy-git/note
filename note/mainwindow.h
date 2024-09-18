@@ -51,6 +51,8 @@ private slots:
     void on_clipBoard_clicked();
     void on_open_triggered();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QTimer *timer;

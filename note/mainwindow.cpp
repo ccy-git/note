@@ -199,8 +199,8 @@ void MainWindow::getClipboardInfo(QClipboard::Mode mode)
           if (mode == QClipboard::Clipboard) {
               // 获取文本信息并进行处理
               QString copiedText = QApplication::clipboard()->text() + "\n";
-              ui->textEdit->insertPlainText(copiedText);
-              //              qDebug() << "Clipboard changed, new text: " << copiedText;
+              ui->clipBoard_text->insertPlainText(copiedText);
+              // qDebug() << "Clipboard changed, new text: " << copiedText;
             }
         });
     }
@@ -214,9 +214,11 @@ void MainWindow::on_clipBoard_clicked()
   isStartClipBoard = !isStartClipBoard;
   if(isStartClipBoard){
       ui->clipBoard->setText("关闭剪切板");
+      setFixedHeight(700);
     }
   else{
       ui->clipBoard->setText("开启剪切板");
+      setFixedHeight(430);
     }
 }
 
@@ -267,4 +269,9 @@ QString MainWindow::getFileName(QString fileName){
   int loc = name.find_last_of("/");
   QString res =  QString::fromStdString((name.substr(loc+1)));
   return res;
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->clipBoard_text->setText("");
 }
